@@ -27,11 +27,11 @@ crops = ['Apple', 'Banana', 'Blackgram', 'Chickpea', 'Coconut', 'Coffee',
        'Mango', 'Mothbeans', 'Mungbean', 'Muskmelon', 'Orange', 'Papaya',
        'Pigeonpeas', 'Pomegranate', 'Rice', 'Watermelon']
 
-labels = [0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
+# labels = [0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
 
 if st.button("Check the Result"):
     crop = loaded_model.predict(feature_array2d)
     st.write("The most suitable crop for given soil:", crops[crop[0]])
-    st.write(crops[crop[0]])
+
 
 
