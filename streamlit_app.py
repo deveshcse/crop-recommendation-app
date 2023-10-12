@@ -1,6 +1,6 @@
 import streamlit as st
 import numpy as np
-from sklearn.preprocessing import StandardScaler
+
 import pickle
 import warnings
 warnings.filterwarnings('ignore')
@@ -22,12 +22,16 @@ rainfall = st.number_input('Enter the value of rainfall')
 features = [n, p, k, temperature, humidity, ph, rainfall]
 feature_array = np.asarray(features)
 feature_array2d = feature_array.reshape(1,-1)
-# scaler = StandardScaler()
-# scaled_features = scaler.fit_transform([features])
-# crop = loaded_model.predict(feature_array2d)
-result = ''
+crops = ['Apple', 'Banana', 'Blackgram', 'Chickpea', 'Coconut', 'Coffee',
+       'Cotton', 'Grapes', 'Jute', 'Kidneybeans', 'Lentil', 'Maize',
+       'Mango', 'Mothbeans', 'Mungbean', 'Muskmelon', 'Orange', 'Papaya',
+       'Pigeonpeas', 'Pomegranate', 'Rice', 'Watermelon']
+
+labels = [0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
+
 if st.button("Check the Result"):
     crop = loaded_model.predict(feature_array2d)
-    st.write(crop)
+    st.write("The most suitable crop for given soil:", crops[crop[0]])
+    st.write(crops[crop[0]])
 
 
